@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dgy0m6tihxit4"]
 
-[ext_resource type="Script" path="res://player/player.gd" id="1_3c3w1"]
+[ext_resource type="Script" uid="uid://7enq1i86jatv" path="res://player/player.gd" id="1_3c3w1"]
 [ext_resource type="Texture2D" uid="uid://bjuvf7hcr4e77" path="res://assets/0x72_DungeonTilesetII_v1.7/0x72_DungeonTilesetII_v1.7/0x72_DungeonTilesetII_v1.7.png" id="1_ulp21"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3c3w1"]
@@ -12,8 +12,7 @@ radius = 7.0
 height = 24.0
 
 [node name="Player" type="CharacterBody2D" unique_id=1669864934 groups=["player"]]
-collision_layer = 2
-collision_mask = 5
+collision_mask = 3
 script = ExtResource("1_3c3w1")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1572453734]

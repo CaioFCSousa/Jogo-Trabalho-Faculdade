@@ -1,0 +1,49 @@
+[gd_scene format=3 uid="uid://cowohdl180f1v"]
+
+[ext_resource type="Script" uid="uid://b1itwo5ibx3a6" path="res://inimigos/enemy_base.gd" id="1_sx3ov"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_sx3ov"]
+
+[sub_resource type="Gradient" id="Gradient_64jvp"]
+colors = PackedColorArray(0.5689727, 0.56897277, 0.5689727, 1, 0.7659574, 0.7659574, 0.7659574, 1)
+metadata/_snap_enabled = true
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_6rn62"]
+gradient = SubResource("Gradient_64jvp")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_tq3wd"]
+particle_flag_disable_z = true
+initial_velocity_min = 10.0
+initial_velocity_max = 20.0
+gravity = Vector3(0, 0, 0)
+scale_min = 2.0
+scale_max = 2.0
+color_ramp = SubResource("GradientTexture1D_6rn62")
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_64jvp"]
+
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=1988310782 groups=["enemies"]]
+script = ExtResource("1_sx3ov")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=626016977]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1256439021]
+shape = SubResource("CapsuleShape2D_sx3ov")
+
+[node name="DustParticles" type="GPUParticles2D" parent="." unique_id=1446475692]
+position = Vector2(-1, 11)
+emitting = false
+amount = 5
+lifetime = 0.4
+speed_scale = 0.8
+explosiveness = 0.8
+randomness = 0.5
+process_material = SubResource("ParticleProcessMaterial_tq3wd")
+
+[node name="DetectionArea" type="Area2D" parent="." unique_id=119153934]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea" unique_id=1646760851]
+shape = SubResource("CircleShape2D_64jvp")
+
+[connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]
+[connection signal="body_exited" from="DetectionArea" to="." method="_on_detection_area_body_exited"]

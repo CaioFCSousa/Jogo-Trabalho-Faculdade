@@ -1,0 +1,151 @@
+[gd_scene format=3 uid="uid://dy1qi8v50xcxj"]
+
+[ext_resource type="Script" uid="uid://1r7wrqh4fmwf" path="res://inimigos/Slime/MiniDemonio.gd" id="1_ouodb"]
+[ext_resource type="Texture2D" uid="uid://b0oe6mxfn3y1y" path="res://assets/0x72_DungeonTilesetII_v1.7/0x72_DungeonTilesetII_v1.7/frames/morte_inimigo_1/chort_idle_anim_f0.png" id="2_0hfx7"]
+[ext_resource type="Texture2D" uid="uid://c4ck6mnjq17u3" path="res://assets/0x72_DungeonTilesetII_v1.7/0x72_DungeonTilesetII_v1.7/frames/chort_idle_anim_f0.png" id="2_c7iyd"]
+[ext_resource type="Texture2D" uid="uid://cmv57c572wov1" path="res://assets/0x72_DungeonTilesetII_v1.7/0x72_DungeonTilesetII_v1.7/frames/morte_inimigo_1/chort_idle_anim_f1.png" id="3_2trey"]
+[ext_resource type="Texture2D" uid="uid://d3kkyvytp3fnw" path="res://assets/0x72_DungeonTilesetII_v1.7/0x72_DungeonTilesetII_v1.7/frames/chort_idle_anim_f1.png" id="3_6rn62"]
+[ext_resource type="Texture2D" uid="uid://c6thkuirycbe2" path="res://assets/0x72_DungeonTilesetII_v1.7/0x72_DungeonTilesetII_v1.7/frames/chort_idle_anim_f2.png" id="4_k4xrd"]
+[ext_resource type="Texture2D" uid="uid://dvkkeskbxm3m4" path="res://assets/0x72_DungeonTilesetII_v1.7/0x72_DungeonTilesetII_v1.7/frames/morte_inimigo_1/chort_idle_anim_f2.png" id="4_n7ysd"]
+[ext_resource type="Texture2D" uid="uid://b7j2evaoj8fhm" path="res://assets/0x72_DungeonTilesetII_v1.7/0x72_DungeonTilesetII_v1.7/frames/chort_idle_anim_f3.png" id="5_gl20q"]
+[ext_resource type="Texture2D" uid="uid://cawt0mqv1lpho" path="res://assets/0x72_DungeonTilesetII_v1.7/0x72_DungeonTilesetII_v1.7/frames/morte_inimigo_1/chort_idle_anim_f3.png" id="5_q4iuw"]
+[ext_resource type="Texture2D" uid="uid://43qr7j4lrm84" path="res://assets/0x72_DungeonTilesetII_v1.7/0x72_DungeonTilesetII_v1.7/frames/morte_inimigo_1/chort_idle_anim_f4.png" id="6_b8mfn"]
+[ext_resource type="Texture2D" uid="uid://lugvvfbr8txk" path="res://assets/0x72_DungeonTilesetII_v1.7/0x72_DungeonTilesetII_v1.7/frames/chort_run_anim_f0.png" id="6_tydxi"]
+[ext_resource type="Texture2D" uid="uid://7kv1q44trn3p" path="res://assets/0x72_DungeonTilesetII_v1.7/0x72_DungeonTilesetII_v1.7/frames/morte_inimigo_1/chort_idle_anim_f5.png" id="7_e3n7w"]
+[ext_resource type="Texture2D" uid="uid://c3krjo86b8r02" path="res://assets/0x72_DungeonTilesetII_v1.7/0x72_DungeonTilesetII_v1.7/frames/chort_run_anim_f1.png" id="7_yppf6"]
+[ext_resource type="Texture2D" uid="uid://c26a2irgjnbt7" path="res://assets/0x72_DungeonTilesetII_v1.7/0x72_DungeonTilesetII_v1.7/frames/chort_run_anim_f2.png" id="8_u4yxy"]
+[ext_resource type="Texture2D" uid="uid://bn6seo2ecrsp8" path="res://assets/0x72_DungeonTilesetII_v1.7/0x72_DungeonTilesetII_v1.7/frames/morte_inimigo_1/chort_idle_anim_f6.png" id="8_vtpf3"]
+[ext_resource type="Texture2D" uid="uid://cv24q031okq20" path="res://assets/0x72_DungeonTilesetII_v1.7/0x72_DungeonTilesetII_v1.7/frames/chort_run_anim_f3.png" id="9_3o7mc"]
+[ext_resource type="Texture2D" uid="uid://n51cg557yyb2" path="res://assets/0x72_DungeonTilesetII_v1.7/0x72_DungeonTilesetII_v1.7/frames/morte_inimigo_1/chort_idle_anim_f7.png" id="9_iyw3j"]
+[ext_resource type="Texture2D" uid="uid://chh7kfutap6nf" path="res://assets/0x72_DungeonTilesetII_v1.7/0x72_DungeonTilesetII_v1.7/frames/morte_inimigo_1/chort_idle_anim_f8.png" id="10_dltba"]
+[ext_resource type="Texture2D" uid="uid://dkjjl50obbff5" path="res://assets/0x72_DungeonTilesetII_v1.7/0x72_DungeonTilesetII_v1.7/frames/morte_inimigo_1/chort_idle_anim_f9.png" id="11_37o2m"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vd7be"]
+radius = 5.0990195
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ccyhi"]
+radius = 113.03982
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_li7na"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_0hfx7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_2trey")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_n7ysd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_q4iuw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_b8mfn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_e3n7w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_vtpf3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_iyw3j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_dltba")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_37o2m")
+}],
+"loop": false,
+"name": &"death",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_c7iyd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_6rn62")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_k4xrd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_gl20q")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_tydxi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_yppf6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_u4yxy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_3o7mc")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 10.0
+}]
+
+[sub_resource type="Gradient" id="Gradient_c7iyd"]
+colors = PackedColorArray(0.5689727, 0.56897277, 0.5689727, 1, 0.7659574, 0.7659574, 0.7659574, 1)
+metadata/_snap_enabled = true
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_6rn62"]
+gradient = SubResource("Gradient_c7iyd")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_k4xrd"]
+particle_flag_disable_z = true
+initial_velocity_min = 10.0
+initial_velocity_max = 20.0
+gravity = Vector3(0, 0, 0)
+scale_min = 2.0
+scale_max = 2.0
+color_ramp = SubResource("GradientTexture1D_6rn62")
+
+[node name="Slime" type="CharacterBody2D" unique_id=44019467 groups=["enemies"]]
+collision_layer = 4
+collision_mask = 7
+script = ExtResource("1_ouodb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1971847145]
+visible = false
+shape = SubResource("CircleShape2D_vd7be")
+
+[node name="DetectionArea" type="Area2D" parent="." unique_id=1117527410]
+visible = false
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea" unique_id=1476650580]
+visible = false
+position = Vector2(-1, -3)
+shape = SubResource("CircleShape2D_ccyhi")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1507804296]
+sprite_frames = SubResource("SpriteFrames_li7na")
+animation = &"idle"
+
+[node name="DustParticles" type="GPUParticles2D" parent="." unique_id=460680058]
+position = Vector2(-1, 11)
+emitting = false
+amount = 5
+lifetime = 0.4
+speed_scale = 0.8
+explosiveness = 0.8
+randomness = 0.5
+process_material = SubResource("ParticleProcessMaterial_k4xrd")
+
+[connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]
+[connection signal="body_exited" from="DetectionArea" to="." method="_on_detection_area_body_exited"]

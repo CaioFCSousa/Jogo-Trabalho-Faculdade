@@ -274,7 +274,7 @@ jogo-dungeon-crawler-top-down/
 │   ├── GameOver.tscn
 │   └── HUD.tscn
 └── main/
-    └── Main.tscn
+	└── Main.tscn
 ```
 
 ### Descrição dos Diretórios
@@ -309,19 +309,19 @@ signal fase_alterada(nova_fase)
 signal game_over
 
 func adicionar_moedas(qtd):
-    moedas += qtd
-    emit_signal("moedas_alteradas", moedas)
+	moedas += qtd
+	emit_signal("moedas_alteradas", moedas)
 
 func gastar_moedas(qtd) -> bool:
-    if moedas >= qtd:
-        moedas -= qtd
-        emit_signal("moedas_alteradas", moedas)
-        return true
-    return false
+	if moedas >= qtd:
+		moedas -= qtd
+		emit_signal("moedas_alteradas", moedas)
+		return true
+	return false
 
 func mudar_fase(cena_path: String):
-    get_tree().change_scene_to_file(cena_path)
-    emit_signal("fase_alterada", cena_path)
+	get_tree().change_scene_to_file(cena_path)
+	emit_signal("fase_alterada", cena_path)
 ```
 
 #### PlayerStats.gd
@@ -344,18 +344,18 @@ signal armadura_alterada(nova_armadura)
 signal item_adicionado(item)
 
 func set_vida(valor):
-    vida = clamp(valor, 0, vida_max)
-    emit_signal("vida_alterada", vida)
+	vida = clamp(valor, 0, vida_max)
+	emit_signal("vida_alterada", vida)
 
 func tomar_dano(dano_bruto: int):
-    var dano_restante = dano_bruto
-    if armadura > 0:
-        var dano_absorvido = min(armadura, dano_bruto)
-        armadura -= dano_absorvido
-        dano_restante -= dano_absorvido
-        emit_signal("armadura_alterada", armadura)
-    if dano_restante > 0:
-        self.vida -= dano_restante
+	var dano_restante = dano_bruto
+	if armadura > 0:
+		var dano_absorvido = min(armadura, dano_bruto)
+		armadura -= dano_absorvido
+		dano_restante -= dano_absorvido
+		emit_signal("armadura_alterada", armadura)
+	if dano_restante > 0:
+		self.vida -= dano_restante
 ```
 
 ### Divisão de Tarefas (Equipe de 3 Programadores)
