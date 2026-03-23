@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://dy1qi8v50xcxj"]
+
+[ext_resource type="Script" uid="uid://1r7wrqh4fmwf" path="res://inimigos/Slime/Slime.gd" id="1_ouodb"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_ccyhi"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vd7be"]
+size = Vector2(7, 7)
+
+[node name="Slime" type="CharacterBody2D" unique_id=1533575923]
+script = ExtResource("1_ouodb")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1869712891]
+position = Vector2(3.75, 3.75)
+scale = Vector2(8.5, 8.5)
+texture = SubResource("CanvasTexture_ccyhi")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=334844231]
+position = Vector2(3.5, 3.5)
+shape = SubResource("RectangleShape2D_vd7be")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=1113672527]

@@ -11,7 +11,36 @@ config_version=5
 [application]
 
 config/name="Jogo_Dungeon_Crawler_Top_Down"
+run/main_scene="uid://bq866arfaesbp"
 config/features=PackedStringArray("4.6", "Forward Plus")
+
+[autoload]
+
+PlayerStats="*uid://bn6v34i1gt2hp"
+Gamemaneger="*uid://b23caxnuk613a"
+
+[display]
+
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+
+[file_customization]
+
+folder_colors={
+"res://autoload/": "red",
+"res://fases/": "pink",
+"res://loja/": "yellow",
+"res://main/": "blue",
+"res://player/": "green",
+"res://testes/": "orange",
+"res://ui/": "purple"
+}
+
+[layer_names]
+
+2d_render/layer_1="Mundo"
+2d_render/layer_2="Jogador"
+2d_render/layer_3="Inimigos"
 
 [physics]
 
@@ -19,4 +48,5 @@ config/features=PackedStringArray("4.6", "Forward Plus")
 
 [rendering]
 
+textures/canvas_textures/default_texture_filter=0
 rendering_device/driver.windows="d3d12"

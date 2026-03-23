@@ -1,11 +1,27 @@
 extends Node
 
+var vida_max: int = 5
+var vida: int = 5
+var armadura: int = 0
+var dano: int = 1
+var velocidade_mov: float = 200.0
+var velocidade_ataque: float = 1.0
+var itens: Array = []
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
+signal vida_alterada(nova_vida)
+signal armadura_alterada(nova_armadura)
+signal item_adicionado(item)
 
+func set_vida(valor):
+	vida = clamp(valor, 0, vida_max)
+	emit_signal("vida_alterada", vida)
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+func tomar_dano(dano_bruto: int):
+	var dano_restante = dano_bruto
+	if armadura > 0:
+		var dano_absorvido = min(armadura, dano_bruto)
+		armadura -= dano_absorvido
+		dano_restante -= dano_absorvido
+		emit_signal("armadura_alterada", armadura)
+	if dano_restante > 0:
+		self.vida -= dano_restante

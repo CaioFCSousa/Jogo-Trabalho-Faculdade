@@ -1,3 +1,26 @@
 [gd_scene format=3 uid="uid://dgy0m6tihxit4"]
 
-[node name="Player" type="Node2D" unique_id=1977986342]
+[ext_resource type="Script" path="res://player/player.gd" id="1_3c3w1"]
+[ext_resource type="Texture2D" uid="uid://bjuvf7hcr4e77" path="res://assets/0x72_DungeonTilesetII_v1.7/0x72_DungeonTilesetII_v1.7/0x72_DungeonTilesetII_v1.7.png" id="1_ulp21"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3c3w1"]
+atlas = ExtResource("1_ulp21")
+region = Rect2(128, 40, 16, 24)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ulp21"]
+radius = 7.0
+height = 24.0
+
+[node name="Player" type="CharacterBody2D" unique_id=1669864934 groups=["player"]]
+collision_layer = 2
+collision_mask = 5
+script = ExtResource("1_3c3w1")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1572453734]
+position = Vector2(2.2500002, -13.157995)
+scale = Vector2(1.0937499, 1.2513378)
+texture = SubResource("AtlasTexture_3c3w1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1329087630]
+position = Vector2(3, -11)
+shape = SubResource("CapsuleShape2D_ulp21")
