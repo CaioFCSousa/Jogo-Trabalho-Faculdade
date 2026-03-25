@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://cu5y1mw3sry6a"]
+
+[ext_resource type="Script" uid="uid://br65fo7oa583g" path="res://inimigos/projetio.gd" id="1_ixod0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ixod0"]
+size = Vector2(8, 4)
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_ixod0"]
+specular_color = Color(0.45693445, 0.00014747262, 0.45744562, 1)
+
+[node name="Projectile" type="Area2D" unique_id=1297660237]
+script = ExtResource("1_ixod0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=83867428]
+position = Vector2(2, 2)
+shape = SubResource("RectangleShape2D_ixod0")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=756052867]
+process_physics_priority = 2
+self_modulate = Color(0.6862745, 0.10980392, 0.26666668, 1)
+position = Vector2(1.2655597, 2.0358186)
+scale = Vector2(9.383507, 6.111447)
+skew = 0.87266463
+texture = SubResource("CanvasTexture_ixod0")

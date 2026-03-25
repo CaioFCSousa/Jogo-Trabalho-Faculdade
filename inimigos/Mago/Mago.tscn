@@ -1,0 +1,72 @@
+[gd_scene format=3 uid="uid://c2ga4ctfmqagl"]
+
+[ext_resource type="PackedScene" uid="uid://cowohdl180f1v" path="res://inimigos/EnemyBase.tscn" id="1_l47ux"]
+[ext_resource type="Texture2D" uid="uid://bk412j2n58d2v" path="res://assets/0x72_DungeonTilesetII_v1.7/0x72_DungeonTilesetII_v1.7/frames/necromancer_anim_f0.png" id="2_53mtx"]
+[ext_resource type="Script" uid="uid://iqpdkgayeqhy" path="res://inimigos/regend_inimigo.gd" id="2_o2yk3"]
+[ext_resource type="Texture2D" uid="uid://xxohtl7hpycj" path="res://assets/0x72_DungeonTilesetII_v1.7/0x72_DungeonTilesetII_v1.7/frames/necromancer_anim_f1.png" id="3_o2yk3"]
+[ext_resource type="Texture2D" uid="uid://hq2vwognrlun" path="res://assets/0x72_DungeonTilesetII_v1.7/0x72_DungeonTilesetII_v1.7/frames/necromancer_anim_f2.png" id="4_2capu"]
+[ext_resource type="Texture2D" uid="uid://c3rrbvqq5nd26" path="res://assets/0x72_DungeonTilesetII_v1.7/0x72_DungeonTilesetII_v1.7/frames/necromancer_anim_f3.png" id="5_jq4y5"]
+[ext_resource type="PackedScene" uid="uid://cu5y1mw3sry6a" path="res://inimigos/Projectile.tscn" id="7_2capu"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6jow4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_53mtx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_o2yk3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_2capu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_jq4y5")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_53mtx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_o2yk3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_2capu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_jq4y5")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 10.0
+}]
+
+[node name="Mago" unique_id=1988310782 instance=ExtResource("1_l47ux")]
+script = ExtResource("2_o2yk3")
+projectile_scene = ExtResource("7_2capu")
+min_distance = 150.0
+shoot_range = 300.0
+
+[node name="AnimatedSprite2D" parent="." index="0" unique_id=626016977]
+sprite_frames = SubResource("SpriteFrames_6jow4")
+animation = &"walk"
+
+[node name="Muzzle" type="Marker2D" parent="AnimatedSprite2D" index="0" unique_id=1295818687]
+position = Vector2(13, -4)
+
+[node name="CollisionShape2D" parent="." index="1" unique_id=1256439021]
+position = Vector2(0, 4)
+
+[node name="DetectionArea" parent="." index="3" unique_id=119153934]
+position = Vector2(1, 8)
+
+[node name="CollisionShape2D" parent="DetectionArea" index="0" unique_id=1646760851]
+position = Vector2(-1, -8)
+
+[node name="ShootingTimer" type="Timer" parent="." index="4" unique_id=1758219414]
+wait_time = 1.5
+one_shot = true

@@ -8,6 +8,8 @@
 [ext_resource type="Script" uid="uid://dxq2aqiv4fh0x" path="res://testes/camera_2d.gd" id="6_j4pun"]
 [ext_resource type="PackedScene" uid="uid://ckmw1jnw2kof1" path="res://inimigos/MiniDemonio/MiniDemonio.tscn" id="8_4iawk"]
 [ext_resource type="Script" uid="uid://t66s6vb7d83q" path="res://testes/button.gd" id="8_xodga"]
+[ext_resource type="PackedScene" uid="uid://dcf16rph00r7i" path="res://inimigos/DemonioMaior/DemonioMaior.tscn" id="9_4iawk"]
+[ext_resource type="PackedScene" uid="uid://c2ga4ctfmqagl" path="res://inimigos/Mago/Mago.tscn" id="10_a7k0p"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xodga"]
 texture = ExtResource("1_h5oxa")
@@ -1081,6 +1083,12 @@ text = "Attack"
 script = ExtResource("8_xodga")
 
 [node name="MiniDemonio" parent="." unique_id=1988310782 instance=ExtResource("8_4iawk")]
-position = Vector2(149, 224)
+position = Vector2(517, 242)
+
+[node name="DemonioMaior" parent="." unique_id=1462398228 instance=ExtResource("9_4iawk")]
+position = Vector2(508, 81)
+
+[node name="Mago" parent="." unique_id=569610577 instance=ExtResource("10_a7k0p")]
+position = Vector2(171, 144)
 
 [connection signal="pressed" from="CanvasLayer/Button" to="CanvasLayer/Button" method="_on_pressed"]
