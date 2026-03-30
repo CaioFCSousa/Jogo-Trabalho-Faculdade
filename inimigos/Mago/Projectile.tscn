@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://cu5y1mw3sry6a"]
+
+[ext_resource type="Script" uid="uid://br65fo7oa583g" path="res://inimigos/Mago/projetio.gd" id="1_ixod0"]
+[ext_resource type="Texture2D" uid="uid://by7rnn1jqvstd" path="res://assets/Sprite-0001.png" id="2_fdirl"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_mmqqh"]
+radius = 3.0
+
+[node name="Projectile" type="Area2D" unique_id=1297660237]
+script = ExtResource("1_ixod0")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=621510932]
+position = Vector2(4, 2)
+scale = Vector2(0.453125, 0.453125)
+texture = ExtResource("2_fdirl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=83867428]
+position = Vector2(4, 2)
+shape = SubResource("CircleShape2D_mmqqh")

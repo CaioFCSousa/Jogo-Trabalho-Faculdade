@@ -27,6 +27,7 @@ radius = 97.020615
 
 [node name="CharacterBody2D" type="CharacterBody2D" unique_id=1988310782 groups=["enemies"]]
 collision_layer = 2
+collision_mask = 4
 script = ExtResource("1_sx3ov")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=626016977]

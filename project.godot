@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Jogo_Dungeon_Crawler_Top_Down"
-run/main_scene="uid://bq866arfaesbp"
+run/main_scene="uid://bioc37f3gk1nv"
 config/features=PackedStringArray("4.6", "Forward Plus")
 
 [autoload]
@@ -41,6 +41,9 @@ folder_colors={
 2d_render/layer_1="Mundo"
 2d_render/layer_2="Jogador"
 2d_render/layer_3="Inimigos"
+2d_physics/layer_1="Player"
+2d_physics/layer_2="Inimigos"
+2d_physics/layer_3="Mundo"
 
 [physics]
 

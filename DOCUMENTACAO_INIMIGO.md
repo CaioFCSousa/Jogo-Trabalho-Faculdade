@@ -270,63 +270,75 @@ jogo-dungeon-crawler-top-down/
 │   ├── Loja.gd.uid
 │   └── Loja.tscn
 ├── ui/
-│   ├── Creditos.tscn
-│   ├── GameOver.tscn
-│   └── HUD.tscn
-└── main/
-	└── Main.tscn
-```
 
-### Descrição dos Diretórios
+# 📖 Documentação Técnica — Sistema de Inimigos & Arena
 
-- **autoload/** - Singletons (GameManager, PlayerStats)
-- **player/** - Cena e script do personagem principal
-- **inimigos/** - Cenas e scripts de todos os inimigos
-- **fases/** - Cenas das 3 fases e componentes reutilizáveis
-- **loja/** - Sistema de loja
-- **ui/** - Telas de menu, HUD e créditos
-- **main/** - Menu principal
+## 1. Sistema de Arena (Sala Fechada)
+
+- **Gerenciamento:** O script `RoomManager.gd` controla o fluxo de combate em salas trancadas.
+- **Funcionamento:** Ao detectar a entrada do Player, as portas são trancadas (via sinal) e o spawn dos inimigos é iniciado.
+- **Controle de Mortes:** Cada inimigo, ao ser removido da árvore (sinal `tree_exited`), incrementa o contador. Quando o número de mortos atinge `quantidade_para_vencer`, a sala é finalizada.
+- **Sinais Importantes:**
+	- `sala_iniciada`: Tranca portas e inicia música de combate.
+	- `sala_limpa`: Libera portas e instancia o baú de recompensa.
+
+**Sugestão:** Certifique-se de conectar scripts de portas e recompensas a esses sinais para garantir integração modular.
 
 ---
 
-## 🛠️ Guia de Desenvolvimento
+## 2. Lógica Base de Inimigos (`enemy_base.gd`)
 
-### Autoloads (Singletons)
+- **Herança:** Todos os inimigos devem herdar da classe `Enemy`.
+- **Knockback System:** Ao receber dano (`take_damage`), o inimigo sofre empurrão na direção oposta ao Player e fica atordoado por 0.2s, interrompendo ataques/movimento.
+- **Feedback Visual:** O método `flash_red()` aplica um efeito visual ao sofrer dano.
+- **Gerenciamento de Vida:** Ao chegar a 0 HP, o inimigo executa animação de morte e se auto-deleta (`queue_free`), disparando a contagem da sala.
+- **Detecção do Player:** O inimigo começa a perseguir o Player ao detectar sua entrada na área de detecção.
 
-#### GameManager.gd
+**Sugestão:** 
+- Sempre use `body.take_damage(valor)` para aplicar dano a qualquer inimigo.
+- Mantenha a modularidade para facilitar a criação de novos tipos de inimigos.
 
-Gerencia o estado global do jogo:
+---
 
-```gdscript
-extends Node
+## 3. IA do Atirador/Mago (`regend_inimigo.gd`)
 
-var moedas: int = 0
-var fase_atual: int = 1
-var jogo_ativo: bool = true
+- **Fuga:** Se o Player se aproximar a menos de 150px, o mago recua automaticamente.
+- **Ataque em Cone:** Dispara 3 projéteis simultâneos com abertura de 30° entre eles a cada 2 segundos.
+- **Sincronia de Animação:** O cajado possui animações independentes para idle e ataque.
 
-signal moedas_alteradas(valor)
-signal fase_alterada(nova_fase)
-signal game_over
+**Sugestão:** 
+- Use o sistema de timers para controlar a cadência de tiro.
+- Certifique-se de que o prefab do projétil está corretamente configurado.
 
-func adicionar_moedas(qtd):
-	moedas += qtd
-	emit_signal("moedas_alteradas", moedas)
+---
 
-func gastar_moedas(qtd) -> bool:
-	if moedas >= qtd:
-		moedas -= qtd
-		emit_signal("moedas_alteradas", moedas)
-		return true
-	return false
+## 4. Sistema de Projéteis (`projetio.gd`)
 
-func mudar_fase(cena_path: String):
-	get_tree().change_scene_to_file(cena_path)
-	emit_signal("fase_alterada", cena_path)
-```
+- **Velocidade:** 400 px/s (ajustar para 150 px/s se seguir o GDD).
+- **Auto-destruição:** Some após 1.5s ou ao colidir com Player/Paredes.
+- **Dano:** Ao colidir com o Player, chama `take_damage(1)`.
 
-#### PlayerStats.gd
+**Sugestão:** 
+- Garanta que o Player está na Layer 1 e inimigos na Layer 2 para correta detecção de colisão.
+- Projete o projétil para ser facilmente reutilizável por outros inimigos.
 
-Gerencia os atributos do jogador:
+---
+
+## 5. Notas para Integração
+
+- **Para Player/HUD:** Inimigos estão na Collision Layer 2. Player deve estar na Layer 1.
+- **Para Fases/Loja:** Instancie `RoomManager.tscn` e configure a lista de inimigos e quantidade para vencer no Inspector. Conecte scripts de portas aos sinais `sala_iniciada` e `sala_limpa`.
+
+---
+
+## 6. Recomendações para Outros Programadores
+
+- **Padronização:** Sempre herde de `Enemy` para novos inimigos.
+- **Sinais:** Use sinais para comunicação entre sistemas (portas, HUD, recompensas).
+- **Modularidade:** Separe lógica de movimento, ataque e feedback visual para facilitar manutenção e expansão.
+- **Documentação:** Mantenha este documento atualizado ao adicionar novos comportamentos ou tipos de inimigos.
+
+---
 
 ```gdscript
 extends Node

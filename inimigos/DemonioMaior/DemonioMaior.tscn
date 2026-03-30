@@ -2,17 +2,46 @@
 
 [ext_resource type="PackedScene" uid="uid://cowohdl180f1v" path="res://inimigos/EnemyBase.tscn" id="1_cn0q5"]
 [ext_resource type="Texture2D" uid="uid://c4oq3yfyyhs7f" path="res://assets/0x72_DungeonTilesetII_v1.7/0x72_DungeonTilesetII_v1.7/frames/wogol_idle_anim_f0.png" id="2_wm7av"]
+[ext_resource type="Texture2D" uid="uid://dary3i13o08j1" path="res://assets/fragmentos/inimigo_2/Sprite-0001.png" id="3_2qajx"]
 [ext_resource type="Texture2D" uid="uid://dif848fps6kl4" path="res://assets/0x72_DungeonTilesetII_v1.7/0x72_DungeonTilesetII_v1.7/frames/wogol_idle_anim_f1.png" id="3_mxjhj"]
+[ext_resource type="Texture2D" uid="uid://b0txfyffcwlem" path="res://assets/fragmentos/inimigo_2/Sprite-0002.png" id="4_bc76m"]
 [ext_resource type="Texture2D" uid="uid://bhgefs33vr2jn" path="res://assets/0x72_DungeonTilesetII_v1.7/0x72_DungeonTilesetII_v1.7/frames/wogol_idle_anim_f2.png" id="4_kxci3"]
+[ext_resource type="Texture2D" uid="uid://c0ho8lj7ulav1" path="res://assets/fragmentos/inimigo_2/Sprite-0003.png" id="5_ft5hm"]
 [ext_resource type="Texture2D" uid="uid://bwso8sp40rupr" path="res://assets/0x72_DungeonTilesetII_v1.7/0x72_DungeonTilesetII_v1.7/frames/wogol_idle_anim_f3.png" id="5_rbprv"]
+[ext_resource type="Texture2D" uid="uid://bff0niovfk65n" path="res://assets/fragmentos/inimigo_2/Sprite-0004.png" id="6_iamdx"]
 [ext_resource type="Texture2D" uid="uid://nktph8uq1yrb" path="res://assets/0x72_DungeonTilesetII_v1.7/0x72_DungeonTilesetII_v1.7/frames/wogol_run_anim_f0.png" id="6_rbprv"]
+[ext_resource type="Texture2D" uid="uid://bf5rvw3kc4kcc" path="res://assets/fragmentos/inimigo_2/Sprite-0005.png" id="7_np67m"]
 [ext_resource type="Texture2D" uid="uid://cmwq1fyxce1tr" path="res://assets/0x72_DungeonTilesetII_v1.7/0x72_DungeonTilesetII_v1.7/frames/wogol_run_anim_f1.png" id="7_sntcs"]
 [ext_resource type="Texture2D" uid="uid://c2fsclg1mgtl4" path="res://assets/0x72_DungeonTilesetII_v1.7/0x72_DungeonTilesetII_v1.7/frames/wogol_run_anim_f2.png" id="8_i5mhj"]
+[ext_resource type="Texture2D" uid="uid://e63gyhdu2t5f" path="res://assets/fragmentos/inimigo_2/Sprite-0006.png" id="8_rkomr"]
 [ext_resource type="Texture2D" uid="uid://biexwhwtysfdo" path="res://assets/0x72_DungeonTilesetII_v1.7/0x72_DungeonTilesetII_v1.7/frames/wogol_run_anim_f3.png" id="9_ipobk"]
 [ext_resource type="Script" uid="uid://1r7wrqh4fmwf" path="res://inimigos/chase_player.gd" id="10_sntcs"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_sntcs"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_2qajx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_bc76m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_ft5hm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_iamdx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_np67m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_rkomr")
+}],
+"loop": false,
+"name": &"death",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("2_wm7av")
@@ -55,7 +84,7 @@ max_health = 4
 
 [node name="AnimatedSprite2D" parent="." index="0" unique_id=626016977]
 sprite_frames = SubResource("SpriteFrames_sntcs")
-animation = &"idle"
+animation = &"death"
 
 [node name="CollisionShape2D" parent="." index="1" unique_id=1256439021]
 position = Vector2(0, 3)
