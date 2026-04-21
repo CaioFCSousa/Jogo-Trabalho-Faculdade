@@ -11,7 +11,7 @@ func _ready():
 	area_ataque.body_entered.connect(_on_ataque_hit)
 
 func _physics_process(_delta):
-	var direction = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
+	var direction = Input.get_vector("left_", "right_", "up_", "down_")
 	velocity = direction * speed
 	move_and_slide()
 

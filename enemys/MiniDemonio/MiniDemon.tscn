@@ -1,0 +1,120 @@
+[gd_scene format=3 uid="uid://ckmw1jnw2kof1"]
+
+[ext_resource type="PackedScene" uid="uid://cowohdl180f1v" path="res://enemys/Base/EnemyBase.tscn" id="1_j06ou"]
+[ext_resource type="Script" uid="uid://1r7wrqh4fmwf" path="res://enemys/Base/ChasePlayer.gd" id="2_bqq82"]
+[ext_resource type="Texture2D" uid="uid://b0oe6mxfn3y1y" path="res://assets/0x72_DungeonTilesetII_v1.7/0x72_DungeonTilesetII_v1.7/frames/morte_inimigo_1/chort_idle_anim_f0.png" id="3_1y42t"]
+[ext_resource type="Texture2D" uid="uid://cmv57c572wov1" path="res://assets/0x72_DungeonTilesetII_v1.7/0x72_DungeonTilesetII_v1.7/frames/morte_inimigo_1/chort_idle_anim_f1.png" id="4_6l37m"]
+[ext_resource type="Texture2D" uid="uid://dvkkeskbxm3m4" path="res://assets/0x72_DungeonTilesetII_v1.7/0x72_DungeonTilesetII_v1.7/frames/morte_inimigo_1/chort_idle_anim_f2.png" id="5_lxk4r"]
+[ext_resource type="Texture2D" uid="uid://cawt0mqv1lpho" path="res://assets/0x72_DungeonTilesetII_v1.7/0x72_DungeonTilesetII_v1.7/frames/morte_inimigo_1/chort_idle_anim_f3.png" id="6_3bmjv"]
+[ext_resource type="Texture2D" uid="uid://43qr7j4lrm84" path="res://assets/0x72_DungeonTilesetII_v1.7/0x72_DungeonTilesetII_v1.7/frames/morte_inimigo_1/chort_idle_anim_f4.png" id="7_xflin"]
+[ext_resource type="Texture2D" uid="uid://7kv1q44trn3p" path="res://assets/0x72_DungeonTilesetII_v1.7/0x72_DungeonTilesetII_v1.7/frames/morte_inimigo_1/chort_idle_anim_f5.png" id="8_uq0ru"]
+[ext_resource type="Texture2D" uid="uid://bn6seo2ecrsp8" path="res://assets/0x72_DungeonTilesetII_v1.7/0x72_DungeonTilesetII_v1.7/frames/morte_inimigo_1/chort_idle_anim_f6.png" id="9_p4qax"]
+[ext_resource type="Texture2D" uid="uid://n51cg557yyb2" path="res://assets/0x72_DungeonTilesetII_v1.7/0x72_DungeonTilesetII_v1.7/frames/morte_inimigo_1/chort_idle_anim_f7.png" id="10_xhbom"]
+[ext_resource type="Texture2D" uid="uid://chh7kfutap6nf" path="res://assets/0x72_DungeonTilesetII_v1.7/0x72_DungeonTilesetII_v1.7/frames/morte_inimigo_1/chort_idle_anim_f8.png" id="11_3nw5k"]
+[ext_resource type="Texture2D" uid="uid://dkjjl50obbff5" path="res://assets/0x72_DungeonTilesetII_v1.7/0x72_DungeonTilesetII_v1.7/frames/morte_inimigo_1/chort_idle_anim_f9.png" id="12_o4e0w"]
+[ext_resource type="Texture2D" uid="uid://dr2gd88hhklkf" path="res://assets/0x72_DungeonTilesetII_v1.7/0x72_DungeonTilesetII_v1.7/frames/imp_idle_anim_f0.png" id="13_5r4nd"]
+[ext_resource type="Texture2D" uid="uid://yhnp61hcch4b" path="res://assets/0x72_DungeonTilesetII_v1.7/0x72_DungeonTilesetII_v1.7/frames/imp_idle_anim_f1.png" id="14_vfxgk"]
+[ext_resource type="Texture2D" uid="uid://440ph37puoco" path="res://assets/0x72_DungeonTilesetII_v1.7/0x72_DungeonTilesetII_v1.7/frames/imp_idle_anim_f2.png" id="15_aekfj"]
+[ext_resource type="Texture2D" uid="uid://ci6ercedmewip" path="res://assets/0x72_DungeonTilesetII_v1.7/0x72_DungeonTilesetII_v1.7/frames/imp_idle_anim_f3.png" id="16_eoo42"]
+[ext_resource type="Texture2D" uid="uid://c2onu3oa1khd3" path="res://assets/0x72_DungeonTilesetII_v1.7/0x72_DungeonTilesetII_v1.7/frames/imp_run_anim_f0.png" id="17_4shpm"]
+[ext_resource type="Texture2D" uid="uid://cqx7m5v1nx8c7" path="res://assets/0x72_DungeonTilesetII_v1.7/0x72_DungeonTilesetII_v1.7/frames/imp_run_anim_f1.png" id="18_yyuw1"]
+[ext_resource type="Texture2D" uid="uid://dkldcictot63u" path="res://assets/0x72_DungeonTilesetII_v1.7/0x72_DungeonTilesetII_v1.7/frames/imp_run_anim_f2.png" id="19_6yf2y"]
+[ext_resource type="Texture2D" uid="uid://dbdavibsdp0dh" path="res://assets/0x72_DungeonTilesetII_v1.7/0x72_DungeonTilesetII_v1.7/frames/imp_run_anim_f3.png" id="20_6bsnm"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6pw86"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_1y42t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_6l37m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_lxk4r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_3bmjv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_xflin")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_uq0ru")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_p4qax")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_xhbom")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_3nw5k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_o4e0w")
+}],
+"loop": false,
+"name": &"death",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("13_5r4nd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_vfxgk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_aekfj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_eoo42")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("17_4shpm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_yyuw1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_6yf2y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_6bsnm")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 10.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_oxbcw"]
+radius = 3.0
+height = 6.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fngkr"]
+radius = 74.8131
+
+[node name="MiniDemonio" unique_id=1988310782 instance=ExtResource("1_j06ou")]
+script = ExtResource("2_bqq82")
+max_health = 2
+
+[node name="AnimatedSprite2D" parent="." index="0" unique_id=626016977]
+sprite_frames = SubResource("SpriteFrames_6pw86")
+animation = &"idle"
+
+[node name="CollisionShape2D" parent="." index="1" unique_id=1256439021]
+position = Vector2(0, 3)
+shape = SubResource("CapsuleShape2D_oxbcw")
+
+[node name="DetectionArea" parent="." index="3" unique_id=119153934]
+position = Vector2(1, 3)
+
+[node name="CollisionShape2D" parent="DetectionArea" index="0" unique_id=1646760851]
+position = Vector2(-1, 0)
+shape = SubResource("CircleShape2D_fngkr")

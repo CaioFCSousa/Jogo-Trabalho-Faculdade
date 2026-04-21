@@ -1,0 +1,98 @@
+[gd_scene format=3 uid="uid://bvxrmvw4ksfni"]
+
+[ext_resource type="PackedScene" uid="uid://cowohdl180f1v" path="res://enemys/Base/EnemyBase.tscn" id="1_kgvkv"]
+[ext_resource type="PackedScene" uid="uid://ckmw1jnw2kof1" path="res://enemys/MiniDemonio/MiniDemon.tscn" id="2_2rsar"]
+[ext_resource type="Script" uid="uid://dxvjofqc1pw6l" path="res://enemys/Boss/Boss.gd" id="2_55sq2"]
+[ext_resource type="PackedScene" uid="uid://cu5y1mw3sry6a" path="res://enemys/Wizard/Projectile.tscn" id="2_75wox"]
+[ext_resource type="Texture2D" uid="uid://d0kc7hvb66f4o" path="res://assets/0x72_DungeonTilesetII_v1.7/0x72_DungeonTilesetII_v1.7/frames/big_demon_idle_anim_f0.png" id="2_jfsx8"]
+[ext_resource type="Texture2D" uid="uid://cdu8ybdp8v07h" path="res://assets/0x72_DungeonTilesetII_v1.7/0x72_DungeonTilesetII_v1.7/frames/big_demon_idle_anim_f1.png" id="3_55sq2"]
+[ext_resource type="PackedScene" uid="uid://dcf16rph00r7i" path="res://enemys/GreaterDemon/GreaterDemon.tscn" id="4_47k0h"]
+[ext_resource type="Texture2D" uid="uid://d0132oea57vf0" path="res://assets/0x72_DungeonTilesetII_v1.7/0x72_DungeonTilesetII_v1.7/frames/big_demon_idle_anim_f2.png" id="4_ls6q7"]
+[ext_resource type="Texture2D" uid="uid://16bhh0fce5xr" path="res://assets/0x72_DungeonTilesetII_v1.7/0x72_DungeonTilesetII_v1.7/frames/big_demon_idle_anim_f3.png" id="5_noyna"]
+[ext_resource type="Texture2D" uid="uid://c268x6urwgt51" path="res://assets/0x72_DungeonTilesetII_v1.7/0x72_DungeonTilesetII_v1.7/frames/big_demon_run_anim_f0.png" id="8_kvd3h"]
+[ext_resource type="Texture2D" uid="uid://naypdan4erem" path="res://assets/0x72_DungeonTilesetII_v1.7/0x72_DungeonTilesetII_v1.7/frames/big_demon_run_anim_f1.png" id="9_o3pgf"]
+[ext_resource type="Texture2D" uid="uid://di73s0biqjvdk" path="res://assets/0x72_DungeonTilesetII_v1.7/0x72_DungeonTilesetII_v1.7/frames/big_demon_run_anim_f2.png" id="10_3kiod"]
+[ext_resource type="Texture2D" uid="uid://c6637dulnt6i2" path="res://assets/0x72_DungeonTilesetII_v1.7/0x72_DungeonTilesetII_v1.7/frames/big_demon_run_anim_f3.png" id="11_c27bf"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tmype"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_jfsx8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_55sq2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_ls6q7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_noyna")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_kvd3h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_o3pgf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_3kiod")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_c27bf")
+}],
+"loop": false,
+"name": &"walk",
+"speed": 10.0
+}]
+
+[node name="Boss" unique_id=1988310782 node_paths=PackedStringArray("boss_health_bar") instance=ExtResource("1_kgvkv")]
+script = ExtResource("2_55sq2")
+speed = 50.0
+accel = 5.0
+projectile_scene = ExtResource("2_75wox")
+slime_scene = ExtResource("2_2rsar")
+terrestre_scene = ExtResource("4_47k0h")
+limite_minions = 5
+boss_health_bar = NodePath("CanvasLayer/BossHealthBar")
+
+[node name="AnimatedSprite2D" parent="." index="0" unique_id=626016977]
+position = Vector2(3.9999988, -4.499999)
+scale = Vector2(1.2499999, 1.2499999)
+sprite_frames = SubResource("SpriteFrames_tmype")
+animation = &"walk"
+
+[node name="CollisionShape2D" parent="." index="1" unique_id=1256439021]
+position = Vector2(3, -2)
+
+[node name="ShotTimer" type="Timer" parent="." index="3" unique_id=314524924]
+
+[node name="SpawnTimer" type="Timer" parent="." index="4" unique_id=1236812030]
+
+[node name="Marker2D" type="Marker2D" parent="." index="5" unique_id=1490683651]
+position = Vector2(5, 0)
+
+[node name="DetectionArea" parent="." index="6" unique_id=119153934]
+position = Vector2(-169, -15)
+
+[node name="CollisionShape2D" parent="DetectionArea" index="0" unique_id=1646760851]
+position = Vector2(177, 19)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." index="7" unique_id=1123757495]
+
+[node name="BossHealthBar" type="ProgressBar" parent="CanvasLayer" index="0" unique_id=1633822268]
+modulate = Color(0.92941177, 0, 0.29411766, 1)
+self_modulate = Color(0.9254902, 0, 0, 1)
+offset_left = 306.0
+offset_top = 1000.0
+offset_right = 1632.0
+offset_bottom = 1046.0
+max_value = 30.0
+
+[connection signal="timeout" from="ShotTimer" to="." method="_on_shot_timer_timeout"]
+[connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]

@@ -459,3 +459,4 @@ O jogo oferece uma experiência progressiva com dificuldade crescente, sistema d
 **Engine:** Godot 4.x  
 **Plataforma:** PC (Windows/Linux/macOS)  
 **Status:** Em Desenvolvimento
+
